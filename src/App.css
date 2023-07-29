@@ -1,3 +1,42 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-areas: "left right";
+  grid-template-columns: 1fr 4fr;
+}
+
+.left {
+  grid-area: left;
+  border: solid;
+}
+
+.right {
+  grid-area: right;
+  border: solid;
+  height: 1000px;
+}
+
+img {
+  object-fit: cover;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

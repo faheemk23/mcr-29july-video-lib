@@ -1,0 +1,18 @@
+.video-card {
+  width: 307px;
+  border: solid red;
+}
+
+.video-info {
+  display: flex;
+}
+
+.remove-watch-later {
+  background-color: #519dcd;
+  border-radius: 50%;
+  color: white;
+}
+
+.add-watch-later {
+  color: #519dcd;
+}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { VideosContext } from "../../../contexts/VideosContext";
 import "./Video.css";
 
-export default function Video({ video }) {
+export default function Video({ video, inMoreVideo }) {
   const { _id, title, views, thumbnail, category, creator, watchLater } = video;
 
   const { videosDispatch } = useContext(VideosContext);
@@ -25,23 +25,25 @@ export default function Video({ video }) {
       className="video-card pointer"
       onClick={() => navigate(`/singlevideo/${_id}`)}
     >
-      <div>
-        {watchLater ? (
-          <span
-            className="material-symbols-outlined remove-watch-later"
-            onClick={handleRemoveFromWatchLater}
-          >
-            schedule
-          </span>
-        ) : (
-          <span
-            className="material-symbols-outlined add-watch-later"
-            onClick={handleAddToWatchLater}
-          >
-            schedule
-          </span>
-        )}
-      </div>
+      {!inMoreVideo && (
+        <div>
+          {watchLater ? (
+            <span
+              className="material-symbols-outlined remove-watch-later"
+              onClick={handleRemoveFromWatchLater}
+            >
+              schedule
+            </span>
+          ) : (
+            <span
+              className="material-symbols-outlined add-watch-later"
+              onClick={handleAddToWatchLater}
+            >
+              schedule
+            </span>
+          )}
+        </div>
+      )}
       <img src={thumbnail} alt={title} height="174px" width="100%" />
       <div className="video-info">
         <img

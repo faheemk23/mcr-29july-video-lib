@@ -6,6 +6,7 @@ import {
   Explore,
   Home,
   PlaylistListing,
+  SinglePlaylist,
   SingleVideo,
   VideoListing,
   WatchLater,
@@ -30,6 +31,10 @@ function App() {
           <Route path="/watchlater" element={<WatchLater />} />
           <Route path="/videolisting/:categoryId" element={<VideoListing />} />
           <Route path="/singlevideo/:videoId" element={<SingleVideo />} />
+          <Route
+            path="/singleplaylist/:playlistId"
+            element={<SinglePlaylist />}
+          />
         </Routes>
       </div>
     </div>

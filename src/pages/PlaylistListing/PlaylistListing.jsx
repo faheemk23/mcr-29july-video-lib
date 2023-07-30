@@ -8,7 +8,6 @@ export default function PlaylistListing() {
   const [showAddToPlaylistModal, setShowAddToPlaylistModal] = useState(false);
   const { playlistsState } = useContext(VideosContext);
 
-  console.log({ playlistsState });
   return (
     <div>
       <h1>Playlists</h1>
@@ -17,7 +16,7 @@ export default function PlaylistListing() {
           <Playlist key={playlist._id} playlist={playlist} />
         ))}
         <span
-          class="material-symbols-outlined pointer"
+          className="material-symbols-outlined pointer"
           onClick={() => setShowAddToPlaylistModal(true)}
         >
           add_circle

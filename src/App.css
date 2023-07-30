@@ -6,13 +6,13 @@
 
 .left {
   grid-area: left;
-  border: solid;
+  padding: 2rem;
 }
 
 .right {
   grid-area: right;
-  border: solid;
-  height: 1000px;
+  padding: 0 2rem;
+  padding-left: 0;
 }
 
 img {

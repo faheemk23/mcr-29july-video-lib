@@ -16,6 +16,26 @@ export function videosReducer(state, action) {
       localStorage.setItem("videos", JSON.stringify(updatedVideos));
       return updatedVideos;
     }
+    case "add-note": {
+      const note = action.payload.note;
+      const videoId = action.payload.videoId;
+      const video = state.find(({ _id }) => Number(videoId) === _id);
+      if (video.notes) {
+        const updatedVideos = state.map((video) =>
+          video._id === Number(videoId)
+            ? { ...video, notes: [...video.notes, note] }
+            : video
+        );
+        localStorage.setItem("videos", JSON.stringify(updatedVideos));
+        return updatedVideos;
+      } else {
+        const updatedVideos = state.map((video) =>
+          video._id === Number(videoId) ? { ...video, notes: [note] } : video
+        );
+        localStorage.setItem("videos", JSON.stringify(updatedVideos));
+        return updatedVideos;
+      }
+    }
     default:
       return state;
   }

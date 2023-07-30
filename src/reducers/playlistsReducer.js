@@ -1,10 +1,12 @@
 export function playlistsReducer(state, action) {
   switch (action.type) {
-    case "set-playtists":
+    case "set-playlists":
       return [...action.payload];
-    case "add-playlist":
-      console.log("hey");
-      return [...state, action.payload];
+    case "add-playlist": {
+      const updatedState = [...state, action.payload];
+      localStorage.setItem("playlists", JSON.stringify(updatedState));
+      return updatedState;
+    }
     case "add-video": {
       const playlistId = action.payload.playlistId;
       const videoId = action.payload.videoId;
@@ -15,13 +17,15 @@ export function playlistsReducer(state, action) {
       if (isVideoAlreadyPresent) {
         return state;
       } else {
-        return [
+        const updatedState = [
           ...state.map((playlist) =>
             playlist._id === playlistId
               ? { ...playlist, videos: [...playlist.videos, videoId] }
               : playlist
           ),
         ];
+        localStorage.setItem("playlists", JSON.stringify(updatedState));
+        return updatedState;
       }
     }
 

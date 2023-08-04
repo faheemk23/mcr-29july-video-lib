@@ -1,6 +1,6 @@
 .video-card {
   width: 307px;
-  border: solid red;
+  position: relative;
 }
 
 .video-info {

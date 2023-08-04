@@ -1,0 +1,25 @@
+.single-video-page {
+  display: grid;
+  grid-template-areas: "single-video-page-left single-video-page-right";
+  grid-template-columns: 3fr 1fr;
+}
+
+.single-video-page-left {
+  grid-area: single-video-page-left;
+}
+
+.single-video-page-right {
+  grid-area: single-video-page-right;
+}
+
+.more-video-container {
+  max-height: 90vh;
+  overflow-y: scroll;
+  padding: 1rem;
+}
+
+.single-video-remove-watch-later {
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+}
